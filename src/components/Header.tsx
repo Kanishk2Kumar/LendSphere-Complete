@@ -44,7 +44,7 @@ export function Header() {
 
         {/* Desktop Links */}
         <div className="hidden sm:flex items-center space-x-10 text-blue-950 font-bold text-md font-serif">
-          <Link href="/bonds" className="hover:text-gray-500">
+          <Link href="/all-bonds" className="hover:text-gray-500">
             All Bonds
           </Link>
           <Link href="/investments" className="hover:text-gray-500">
@@ -119,7 +119,7 @@ export function Header() {
             </button>
           </div>
           <div className="flex flex-col items-center space-y-4 w-full px-4">
-            <Link href="/bonds" className="text-lg text-blue-950 font-bold hover:text-gray-500">
+            <Link href="/all-bonds" className="text-lg text-blue-950 font-bold hover:text-gray-500">
               All Bonds
             </Link>
             <hr className="w-full border-gray-200" />
