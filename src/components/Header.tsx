@@ -47,10 +47,10 @@ export function Header() {
           <Link href="/all-bonds" className="hover:text-gray-500">
             All Bonds
           </Link>
-          <Link href="/investments" className="hover:text-gray-500">
+          <Link href="/MyInvestments" className="hover:text-gray-500">
             My Investments
           </Link>
-          <Link href="/loans" className="hover:text-gray-500">
+          <Link href="/ApplyForLoan" className="hover:text-gray-500">
             Apply For Loans
           </Link>
         </div>
@@ -123,11 +123,11 @@ export function Header() {
               All Bonds
             </Link>
             <hr className="w-full border-gray-200" />
-            <Link href="/investments" className="text-lg text-blue-950 font-bold hover:text-gray-500">
+            <Link href="/MyInvestments" className="text-lg text-blue-950 font-bold hover:text-gray-500">
               My Investments
             </Link>
             <hr className="w-full border-gray-200" />
-            <Link href="/loans" className="text-lg text-blue-950 font-bold hover:text-gray-500">
+            <Link href="/ApplyForLoan" className="text-lg text-blue-950 font-bold hover:text-gray-500">
               Apply For Loans
             </Link>
             <hr className="w-full border-gray-200" />
