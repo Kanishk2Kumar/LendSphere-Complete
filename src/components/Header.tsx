@@ -74,7 +74,7 @@ export function Header() {
           <PopoverContent className="w-48 p-2">
             <div className="flex flex-col space-y-2">
               <Link
-                href="/admin"
+                href="/dashboard"
                 className="flex items-center text-blue-950 font-bold hover:text-gray-500 p-2 rounded hover:bg-gray-100"
               >
                 <span>Admin</span>

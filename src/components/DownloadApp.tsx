@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const DownloadApp: React.FC = () => {
   return (
-    <section className="relative bg-white py-16 mt-20 min-h-screen">
+    <section className="relative bg-white py-10 min-h-96">
       <div className="container mx-auto px-6 md:flex md:items-center md:justify-between mt-16">
         {/* Left Section */}
         <div className="md:w-1/2 pl-10">

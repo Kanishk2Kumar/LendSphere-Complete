@@ -9,7 +9,7 @@ const ApplyForLoan = () => {
     <div>
       <Header />
       {connected ? (
-        <div></div>
+        <div><ApplyForLoan /></div>
       ) : (
         <div className="flex items-center justify-center flex-col min-h-screen">
           <div className="text-4xl text-blue-500 font-merriweather-black">To Apply For Loans Connect your wallet</div>
