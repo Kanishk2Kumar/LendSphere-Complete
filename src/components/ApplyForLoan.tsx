@@ -1,5 +1,6 @@
 import React from "react";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
+import { InterestCalculator } from "./IntrestCalculator";
 
 export function BentoGridSecondDemo() {
   return (
@@ -15,25 +16,25 @@ export function BentoGridSecondDemo() {
   );
 }
 
-const Skeleton = () => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)] border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black"></div>
-);
-
 const items = [
   {
-    component: <Skeleton />, // Placeholder or dynamic content
+    component: <div></div>, // Placeholder or dynamic content
     className: "md:col-span-2",
   },
   {
-    component: <Skeleton />,
+    component: (
+      <div className="h-full flex items-center justify-center">
+        <InterestCalculator isCompact />
+      </div>
+    ),
     className: "md:col-span-1",
   },
   {
-    component: <Skeleton />,
+    component: <div></div>,
     className: "md:col-span-1",
   },
   {
-    component: <Skeleton />,
+    component: <div></div>,
     className: "md:col-span-2",
   },
 ];
