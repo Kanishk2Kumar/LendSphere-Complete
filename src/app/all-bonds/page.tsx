@@ -5,20 +5,159 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 
 const AllBonds = () => {
   const { connected } = useWallet();
-  const [activeTab, setActiveTab] = useState("Active"); // Track the active tab
+  const [activeTab, setActiveTab] = useState("Active");
+  const [searchId, setSearchId] = useState("");
+  const [searchTriggered, setSearchTriggered] = useState(false);
+
+  const loanCards = [
+    {
+      id: 1,
+      title: 'Yo-gro',
+      category: 'Ed-tech',
+      requiredInvestment: '₹12 Lakh',
+      expectedInterest: '10%',
+      fundCollected: 38,
+      status: 'Active', // Add status to each card
+      images: ['/images/allbonds.png']
+    },
+    {
+      id: 2,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Pending', // Add status to each card
+      images: ['/images/allbonds.png']
+    },
+    {
+      id: 3,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Resolved', // Add status to each card
+      images: ['/images/allbonds.png']
+    },
+    {
+      id: 4,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Active', // Add status to each card
+      images: ['/images/allbonds.png']
+    },
+    {
+      id: 5,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Pending', // Add status to each card
+      images: ['/images/allbonds.png']
+    },
+    {
+      id: 6,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Active', // Add status to each card
+      images: ['/images/allbonds.png']
+    },
+    {
+      id: 7,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Pending', // Add status to each card
+      images: ['/images/allbonds.png']
+    },{
+      id: 8,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Pending', // Add status to each card
+      images: ['/images/allbonds.png']
+    },
+    {
+      id: 9,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Active', // Add status to each card
+      images: ['/images/allbonds.png']
+    },
+    {
+      id: 10,
+      title: 'Edu-pro',
+      category: 'Agri-tech',
+      requiredInvestment: '₹15 Lakh',
+      expectedInterest: '12%',
+      fundCollected: 50,
+      status: 'Pending', // Add status to each card
+      images: ['/images/allbonds.png']
+    }
+  ];
+
+  // Filter the loan cards based on the selected status and search ID
+  const filteredCards = loanCards.filter(
+    (loan) =>
+      loan.status === activeTab &&
+      (!searchTriggered || searchId === "" || loan.id.toString() === searchId)
+  );
+
+  const handleSearch = () => {
+    setSearchTriggered(true);
+  };
 
   return (
     <div>
       <Header />
       {connected ? (
-        <div className="max-w-7xl mx-auto p-4 mt-20">
+        <div className="max-w-7xl flex-row mx-auto p-4 mt-24 font-serif">
+          {/* Search Bar */}
+          <div className="flex justify-center items-center mb-6">
+            <input
+              type="text"
+              placeholder="Search by ID"
+              value={searchId}
+              onChange={(e) => setSearchId(e.target.value)}
+              className="px-4 py-2 w-3/4 sm:w-1/2 lg:w-1/3 border border-gray-300 bg-white text-black rounded-l-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+            <button
+              onClick={handleSearch}
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md"
+            >
+              <img
+                src="./icons/Search.svg"
+                alt="Search"
+                className="w-5 h-5 inline-block"
+              />
+            </button>
+          </div>
+
           {/* Image Section */}
-          <div className="mt-6 h-48 bg-gray-100 flex items-center justify-center text-gray-500 text-lg">Image</div>
+          <img
+            src="./images/loan.png"
+            alt="Loan"
+            className="w-full h-[400px] object-cover"
+          />
 
           {/* Sliding Status Buttons */}
           <div className="mt-6 relative w-140 mx-auto">
             <div className="flex justify-between bg-gray-200 rounded-full p-1 relative">
-              {/* Slider */}
               <div
                 className={`absolute top-0 left-0 w-1/3 h-full bg-blue-500 rounded-full transition-transform duration-300 ease-in-out`}
                 style={{
@@ -26,25 +165,30 @@ const AllBonds = () => {
                     activeTab === "Active"
                       ? "translateX(0%)"
                       : activeTab === "Pending"
-                        ? "translateX(100%)"
-                        : "translateX(200%)",
+                      ? "translateX(100%)"
+                      : "translateX(200%)",
                 }}
               ></div>
-              {/* Buttons */}
               <button
-                className={`w-1/3 py-2 text-center font-medium z-10 ${activeTab === "Active" ? "text-white" : "text-gray-600"}`}
+                className={`w-1/3 py-2 text-center font-medium z-10 ${
+                  activeTab === "Active" ? "text-white" : "text-gray-600"
+                }`}
                 onClick={() => setActiveTab("Active")}
               >
                 Active
               </button>
               <button
-                className={`w-1/3 py-2 text-center font-medium z-10 ${activeTab === "Pending" ? "text-white" : "text-gray-600"}`}
+                className={`w-1/3 py-2 text-center font-medium z-10 ${
+                  activeTab === "Pending" ? "text-white" : "text-gray-600"
+                }`}
                 onClick={() => setActiveTab("Pending")}
               >
                 Pending
               </button>
               <button
-                className={`w-1/3 py-2 text-center font-medium z-10 ${activeTab === "Resolved" ? "text-white" : "text-gray-600"}`}
+                className={`w-1/3 py-2 text-center font-medium z-10 ${
+                  activeTab === "Resolved" ? "text-white" : "text-gray-600"
+                }`}
                 onClick={() => setActiveTab("Resolved")}
               >
                 Resolved
@@ -53,89 +197,56 @@ const AllBonds = () => {
           </div>
 
           {/* Loan Section */}
-          <div className="mt-6 flex justify-between">
-            {/* Loan Card 1 */}
-            <div className="w-1/2 bg-white border rounded-lg shadow p-4 mr-4">
-              <div className="flex justify-between mb-4">
-                {/* Small Image Section for Loan 1 */}
-                <img
-                  src="/images/allbonds.png" // Replace with your actual image paths
-                  alt="Loan 1 Image 1"
-                  width={140}
-                  height={80}
-                  className="object-cover rounded-md"
-                />
-                <img
-                  src="/images/allbonds.png" // Replace with your actual image paths
-                  alt="Loan 1 Image 1"
-                  width={140}
-                  height={80}
-                  className="object-cover rounded-md"
-                />
-                <img
-                  src="/images/allbonds.png" // Replace with your actual image paths
-                  alt="Loan 1 Image 2"
-                  width={140}
-                  height={80}
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <p className="text-sm mb-4">
-                <strong>1. Yo-gro</strong> <br />
-                Category: Ed-tech <br />
-                Required Investment: ₹12 Lakh <br />
-                Expected Interest: 10%
-              </p>
-              <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden mb-2">
-                <div className="bg-blue-500 h-full" style={{ width: "38%" }}></div>
-              </div>
-              <p className="text-sm mb-4">38% fund collected</p>
-              <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Apply</button>
-            </div>
-
-            {/* Loan Card 2 */}
-            <div className="w-1/2 bg-white border rounded-lg shadow p-4 mr-4">
-              <div className="flex justify-between mb-4">
-                {/* Small Image Section for Loan 2 */}
-                <img
-                  src="/images/allbonds.png" // Replace with your actual image paths
-                  alt="Loan 2 Image 1"
-                  width={140}
-                  height={80}
-                  className="object-cover rounded-md"
-                />
-                <img
-                  src="/images/allbonds.png" // Replace with your actual image paths
-                  alt="Loan 2 Image 1"
-                  width={140}
-                  height={80}
-                  className="object-cover rounded-md"
-                />
-                <img
-                  src="/images/allbonds.png" // Replace with your actual image paths
-                  alt="Loan 2 Image 2"
-                  width={140}
-                  height={80}
-                  className="object-cover rounded-md"
-                />
-              </div>
-              <p className="text-sm mb-4">
-                <strong>2. Edu-pro</strong> <br />
-                Category: Agri-tech <br />
-                Required Investment: ₹15 Lakh <br />
-                Expected Interest: 12%
-              </p>
-              <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden mb-2">
-                <div className="bg-blue-500 h-full" style={{ width: "50%" }}></div>
-              </div>
-              <p className="text-sm mb-4">50% fund collected</p>
-              <button className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Apply</button>
-            </div>
+          <div className="ml-20 mt-6 flex flex-wrap gap-12 justify-start">
+            {filteredCards.length > 0 ? (
+              filteredCards.map((loan) => (
+                <div
+                  key={loan.id}
+                  className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-auto bg-white border rounded-lg shadow p-4 mb-4"
+                >
+                  <div className="flex justify-between mb-4">
+                    {loan.images.map((imgSrc, index) => (
+                      <img
+                        key={index}
+                        src={imgSrc}
+                        alt={`Loan ${loan.id} Image ${index + 1}`}
+                        width={280}
+                        height={80}
+                        className="object-cover rounded-md"
+                      />
+                    ))}
+                  </div>
+                  <p className="text-sm mb-4">
+                    <strong>
+                      {loan.id}. {loan.title}
+                    </strong>
+                    <br />
+                    Category: {loan.category} <br />
+                    Required Investment: {loan.requiredInvestment} <br />
+                    Expected Interest: {loan.expectedInterest}
+                  </p>
+                  <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden mb-2">
+                    <div
+                      className="bg-blue-500 h-full"
+                      style={{ width: `${loan.fundCollected}%` }}
+                    ></div>
+                  </div>
+                  <p className="text-sm mb-4">{loan.fundCollected}% fund collected</p>
+                  <button className="px-32 py-2 border-black bg-white text-black rounded hover:bg-blue-600">
+                    Apply
+                  </button>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-500">No results found.</p>
+            )}
           </div>
         </div>
       ) : (
         <div className="flex items-center justify-center flex-col min-h-screen">
-          <div className="text-4xl text-blue-500 font-merriweather-black">To Apply For Loans Connect your wallet</div>
+          <div className="text-4xl text-blue-500 font-merriweather-black">
+            To Apply For Loans Connect your wallet
+          </div>
         </div>
       )}
     </div>
