@@ -79,7 +79,7 @@ const AllBonds = () => {
       fundCollected: 50,
       status: 'Pending', // Add status to each card
       images: ['/images/allbonds.png']
-    },{
+    }, {
       id: 8,
       title: 'Edu-pro',
       category: 'Agri-tech',
@@ -129,28 +129,31 @@ const AllBonds = () => {
         <div className="max-w-7xl flex-row mx-auto p-4 mt-24 font-serif">
           {/* Search Bar */}
           <div className="flex justify-center items-center mb-6">
-            <input
-              type="text"
-              placeholder="Search by ID"
-              value={searchId}
-              onChange={(e) => setSearchId(e.target.value)}
-              className="px-4 py-2 w-3/4 sm:w-1/2 lg:w-1/3 border border-gray-300 bg-white text-black rounded-l-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
-            <button
-              onClick={handleSearch}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-md"
-            >
-              <img
-                src="./icons/Search.svg"
-                alt="Search"
-                className="w-5 h-5 inline-block"
+            <div className="relative w-4/5 sm:w-2/3 lg:w-1/2">
+              <input
+                type="text"
+                placeholder="Search by ID"
+                value={searchId}
+                onChange={(e) => setSearchId(e.target.value)}
+                className="w-full px-6 py-3 border border-gray-300 rounded-full text-gray-700 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-md"
               />
-            </button>
+              <button
+                onClick={handleSearch}
+                className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow-md transition-all duration-300 ease-in-out"
+              >
+                <img
+                  src="./icons/Search.svg"
+                  alt="Search"
+                  className="w-5 h-5"
+                />
+              </button>
+            </div>
           </div>
+
 
           {/* Image Section */}
           <img
-            src="./images/loan.png"
+            src="./images/image.png"
             alt="Loan"
             className="w-full h-[400px] object-cover"
           />
@@ -165,30 +168,27 @@ const AllBonds = () => {
                     activeTab === "Active"
                       ? "translateX(0%)"
                       : activeTab === "Pending"
-                      ? "translateX(100%)"
-                      : "translateX(200%)",
+                        ? "translateX(100%)"
+                        : "translateX(200%)",
                 }}
               ></div>
               <button
-                className={`w-1/3 py-2 text-center font-medium z-10 ${
-                  activeTab === "Active" ? "text-white" : "text-gray-600"
-                }`}
+                className={`w-1/3 py-2 text-center font-medium z-10 ${activeTab === "Active" ? "text-white" : "text-gray-600"
+                  }`}
                 onClick={() => setActiveTab("Active")}
               >
                 Active
               </button>
               <button
-                className={`w-1/3 py-2 text-center font-medium z-10 ${
-                  activeTab === "Pending" ? "text-white" : "text-gray-600"
-                }`}
+                className={`w-1/3 py-2 text-center font-medium z-10 ${activeTab === "Pending" ? "text-white" : "text-gray-600"
+                  }`}
                 onClick={() => setActiveTab("Pending")}
               >
                 Pending
               </button>
               <button
-                className={`w-1/3 py-2 text-center font-medium z-10 ${
-                  activeTab === "Resolved" ? "text-white" : "text-gray-600"
-                }`}
+                className={`w-1/3 py-2 text-center font-medium z-10 ${activeTab === "Resolved" ? "text-white" : "text-gray-600"
+                  }`}
                 onClick={() => setActiveTab("Resolved")}
               >
                 Resolved
