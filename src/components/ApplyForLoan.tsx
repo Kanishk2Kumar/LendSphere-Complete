@@ -1,5 +1,6 @@
 import React from "react";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
+
 import { EmiCalculator } from "./IntrestCalculator";
 
 export function BentoGridSecondDemo() {
@@ -18,6 +19,7 @@ export function BentoGridSecondDemo() {
 
 const items = [
   {
+
     component: (
       <div className="grid grid-cols-3 gap-4 items-center h-full">
         {/* Left Section */}
@@ -57,6 +59,7 @@ const items = [
     className: "md:col-span-1",
   },
   {
+
     component: <div>
       <div className="col-span-2">
           <h1 className="font-merriweather-black font-bold text-2xl">
@@ -104,6 +107,10 @@ const items = [
         </div>
       </div>
     ),  
+    className: "md:col-span-1",
+  },
+  {
+    component: <div></div>,
     className: "md:col-span-2",
   },
 ];

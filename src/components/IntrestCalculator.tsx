@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 export function EmiCalculator({ isCompact }: { isCompact?: boolean }) {
   const [principal, setPrincipal] = useState<number>(0);
   const [rate, setRate] = useState<number>(0);
@@ -23,6 +24,7 @@ export function EmiCalculator({ isCompact }: { isCompact?: boolean }) {
       <div className={`space-y-2 ${isCompact ? "text-sm" : "text-base"}`}>
         <div>
           <label className="block text-gray-700 mb-1 text-xl font-merriweather-black font-bold">
+
             EMI Calculator
           </label>
           <input
@@ -35,6 +37,7 @@ export function EmiCalculator({ isCompact }: { isCompact?: boolean }) {
         </div>
         <div>
           <label className="block font-medium text-gray-700 mb-1 text-lg">
+
             Rate of Interest (%)
           </label>
           <input
@@ -42,6 +45,7 @@ export function EmiCalculator({ isCompact }: { isCompact?: boolean }) {
             value={rate}
             onChange={(e) => setRate(parseFloat(e.target.value))}
             className="w-full border border-gray-300 rounded-lg px-3 py-2 text-lg"
+
             placeholder="Enter rate of interest"
           />
         </div>
@@ -54,6 +58,7 @@ export function EmiCalculator({ isCompact }: { isCompact?: boolean }) {
             value={time}
             onChange={(e) => setTime(parseFloat(e.target.value))}
             className="w-full border border-gray-300 rounded-lg px-3 py-2 text-lg"
+
             placeholder="Enter loan tenure in years"
           />
         </div>
@@ -68,6 +73,7 @@ export function EmiCalculator({ isCompact }: { isCompact?: boolean }) {
             EMI:{" "}
             <span className="text-blue-600">
               {emi.toFixed(2)}
+
             </span>
           </div>
         )}
