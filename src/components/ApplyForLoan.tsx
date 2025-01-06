@@ -107,10 +107,6 @@ const items = [
         </div>
       </div>
     ),  
-    className: "md:col-span-1",
-  },
-  {
-    component: <div></div>,
     className: "md:col-span-2",
   },
 ];
