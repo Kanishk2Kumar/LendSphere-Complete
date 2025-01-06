@@ -2,7 +2,7 @@
 .aptos
 .env
 contract/build
-
+public/sw.js.map
 # Logs
 logs
 *.log
