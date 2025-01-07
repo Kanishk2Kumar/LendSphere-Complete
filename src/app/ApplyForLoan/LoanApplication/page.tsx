@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { FaUpload } from "react-icons/fa";
 
@@ -8,13 +9,14 @@ export default function LoanApplicationPage() {
     <div className="grid min-h-screen lg:grid-cols-2 bg-gray-50">
       {/* Left Section */}
       <div className="flex flex-col gap-6 p-8 md:p-12">
+      <Link href="/" ><img src="/Logo-BG.png" alt="Logo Full" height={60} width={150} /></Link>
         <div className="flex justify-center gap-4 md:justify-start">
           {/* Placeholder for additional content */}
         </div>
         <div className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
             <h2 className="text-3xl font-semibold text-gray-900 text-center mb-6">
-              Apply for a Loan
+              <span className="text-blue-500">Apply</span> for Loan
             </h2>
             <LoanApplicationForm />
           </div>
