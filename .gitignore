@@ -3,10 +3,8 @@
 .env
 contract/build
 public/sw.js.map
-<<<<<<< HEAD
+public/sw.js
 
-=======
->>>>>>> a38af79fac5287bc5f7564a88ac44234d965a39f
 # Logs
 logs
 *.log
@@ -34,6 +32,7 @@ pnpm-lock.yaml
 *.njsproj
 *.sln
 *.sw?
+*sw?
 
 # template related files
 example-collection/
