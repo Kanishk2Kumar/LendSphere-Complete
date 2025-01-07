@@ -31,7 +31,7 @@ const items = [
             Apply for loans or invest in lending opportunities directly using your blockchain wallet on our platform. Experience secure, fast, and transparent transactions with the power of blockchain technology for both borrowing and investing.
           </p>
           <button
-            onClick={() => (window.location.href = 'https://www.example.com')}
+            onClick={() => (window.location.href = '/ApplyForLoan/LoanApplication')}
             className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
           >
             Apply
